@@ -17,9 +17,6 @@ def main():
     print("\n=== Codeforces Contests ===")
     fetch_contests()
 
-    print("\n=== DEV.to Feed ===")
-    fetch_feed(api_key=os.getenv("DEVTO_API_KEY", ""))
-
     print("\n=== GeeksforGeeks POTD ===")
     fetch_gfg_potd()
 
@@ -37,6 +34,10 @@ def main():
 
     print("\n=== StackOverflow Questions ===")
     username = os.getenv("STACKOVERFLOW_USERNAME")
+
+    print("\n=== DEV.to Feed ===")
+    fetch_feed(api_key=os.getenv("DEVTO_API_KEY", ""))
+    
     if not username:
         print("❌ Please set STACKOVERFLOW_USERNAME in your .env file.")
     else:
