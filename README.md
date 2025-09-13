@@ -1,7 +1,7 @@
 # Aggregator
 This application puts everything in 1 place, So it improves Productivity and make sure the user doesn't miss out anything
 
-For now it is CLI Based and focuses mostly for developers
+## For now it is CLI Based and focuses mostly for developers
 To start using this..
 1) Go to this websites
    a) Codeforces b) StackOverflow c) Kaggle d) dev.to e) Github f) GitLab g) GeeksforGeeks (optional) h) newsdata.io
@@ -12,8 +12,10 @@ To start using this..
 5) To know more specifically(based on the one you would like to know, lets say devto) so this one going to be `python devto.py feed` then you would get by default top 10 tech related news. Can be done for all 6
 6) To know Specifically what to type in each file go to the bottom, you will see `main` function there you will see what command to type after the website name, based on that real time information is shown
 
-After running it in the CLI
+### After running it in CLI
 <img width="1920" height="1080" alt="Screenshot_20250913_211254" src="https://github.com/user-attachments/assets/bb843f7b-dd98-41f3-a4a8-586c2abc5312" />
 
+### How it Works ?
+For this you can check out `logic.svg`, Every function works in same order(a.either use request library b.particular library for that website c.url(can only certain amount of info) d.Scrapping the webste(based on the website legal terms)
 
 
