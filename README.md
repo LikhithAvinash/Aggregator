@@ -12,7 +12,8 @@ To start using this..
 5) To know more specifically(based on the one you would like to know, lets say devto) so this one going to be `python devto.py feed` then you would get by default top 10 tech related news. Can be done for all 6
 6) To know Specifically what to type in each file go to the bottom, you will see `main` function there you will see what command to type after the website name, based on that real time information is shown
 
-!<img width="1920" height="1080" alt="Screenshot_20250913_211254" src="https://github.com/user-attachments/assets/bb843f7b-dd98-41f3-a4a8-586c2abc5312" />
+After running it in the CLI
+<img width="1920" height="1080" alt="Screenshot_20250913_211254" src="https://github.com/user-attachments/assets/bb843f7b-dd98-41f3-a4a8-586c2abc5312" />
 
 
 
