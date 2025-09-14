@@ -42,6 +42,7 @@ To start using this..
 
 ### How it Works ?
 Every function works from any of the below approach
+
 a.Either use request library 
 
 b.Particular library for that website 
