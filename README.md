@@ -43,7 +43,7 @@ cd Aggregator
 ### 3. Create a Virtual Environment
 It is highly recommended to use a virtual environment to manage dependencies.
 
-### Create the environment
+#### Create the environment
 python -m venv venv
 
 #### Activate the environment
