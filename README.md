@@ -23,21 +23,7 @@ View your recent questions on Stack Overflow.
 ## 📂 Project Structure
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
 
-`Aggregator/
-├── .gitignore            # Tells Git which files to ignore (like .env)
-├── .env.example          # Template for environment variables
-├── README.md             # This file
-├── aggregator/
-│   └── alldata.py        # The main aggregator script
-└── single_application/
-    ├── __init__.py       # Makes this folder a Python package
-    ├── codeforces.py
-    ├── devto.py
-    ├── gfg.py
-    ├── github.py
-    ├── gitlab_cli.py
-    ├── kaggle_cli.py
-    └── stackoverflow.py`
+<pre> ```text Aggregator/ ├── .gitignore # Tells Git which files to ignore (like .env) ├── .env.example # Template for environment variables ├── README.md # This file ├── aggregator/ │ └── alldata.py # The main aggregator script └── single_application/ ├── __init__.py # Makes this folder a Python package ├── codeforces.py ├── devto.py ├── gfg.py ├── github.py ├── gitlab_cli.py ├── kaggle_cli.py └── stackoverflow.py ``` </pre>
 
 
 
