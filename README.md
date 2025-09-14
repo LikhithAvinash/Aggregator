@@ -20,6 +20,7 @@ To start using this..
 
 ## 🛠️ Explanation of Each Library
 **python-gitlab:** This is the official Python wrapper for the GitLab API. Your first script uses it to authenticate and fetch lists of projects, issues, and pipelines from a GitLab instance.
+
 **kaggle:** This is the official command-line tool and Python client for Kaggle. The second script uses it to authenticate with your Kaggle account and fetch lists of datasets and competitions.
 **rich:** This is a powerful library for creating beautiful and rich text and formatting in the terminal. Your DEV.to script uses it to display styled output, including colored text, panels, and formatted Markdown content for articles.
 **requests:** A very common library for making HTTP requests. The News and DEV.to scripts use it to communicate with their respective web APIs to get data.
