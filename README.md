@@ -23,21 +23,8 @@ View your recent questions on Stack Overflow.
 ## 📂 Project Structure
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
 
-your_project/
-├── .gitignore            # Tells Git which files to ignore (like .env)
-├── .env.example          # Template for environment variables
-├── README.md             # This file
-├── aggregator/
-│   └── alldata.py        # The main aggregator script
-└── single_application/
-    ├── __init__.py       # Makes this folder a Python package
-    ├── codeforces.py
-    ├── devto.py
-    ├── gfg.py
-    ├── github.py
-    ├── gitlab_cli.py
-    ├── kaggle_cli.py
-    └── stackoverflow.py
+<img width="827" height="392" alt="image" src="https://github.com/user-attachments/assets/31e6c53e-a6cb-474d-83c0-54c77f0dffe9" />
+
 
 ## 🛠️ Setup Instructions
 Follow these steps to get the project running on your local machine.
@@ -59,10 +46,10 @@ It is highly recommended to use a virtual environment to manage dependencies.
 ### Create the environment
 python -m venv venv
 
-### Activate the environment
-### On Windows:
+#### Activate the environment
+#### On Windows:
 venv\Scripts\activate
-### On macOS / Linux:
+#### On macOS / Linux:
 source venv/bin/activate
 
 ### 4. Install Dependencies
