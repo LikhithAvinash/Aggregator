@@ -1,6 +1,8 @@
 end point = so it is a complete link to a website 
 route = it is some specific feature in a website 
 
+I've wrote Logic for only dev.to websie but almost getting data from every website works in the same way
+
 **DEV.TO**
 
 1) Start
