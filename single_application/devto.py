@@ -1,30 +1,42 @@
 import requests
-import argparse
 from tabulate import tabulate
 import os
+import argparse
 from rich.console import Console
 from rich.markdown import Markdown
 from rich.panel import Panel
-from dotenv import load_dotenv
-load_dotenv()
 
-# Base URL for DEV.to API   
+# --- Setup ---
 BASE_URL = "https://dev.to/api"
-
 console = Console()
 
-def get_headers(api_key):
-    return {"api-key": api_key}
+def get_api_key():
+    """Helper to get the API key from .env and handle if it's missing."""
+    # This ensures dotenv is loaded if the script is run directly
+    from dotenv import load_dotenv
+    load_dotenv()
+    
+    api_key = os.getenv("DEVTO_API_KEY")
+    if not api_key:
+        print("⚠️  DEVTO_API_KEY not found in .env file. Please create a .env file in the project root.")
+    return api_key
 
-def fetch_single_article(api_key, article_id):
-    """Fetches and displays a single article by its ID."""
+def get_headers(api_key):
+    """Constructs the request headers."""
+    return {"api-key": api_key, "Accept": "application/vnd.forem.api-v1+json"}
+
+# --- Interactive Functions for Detailed View ---
+
+def fetch_single_article(article_id, api_key):
+    """Fetches and displays a single full article by its ID."""
     url = f"{BASE_URL}/articles/{article_id}"
-    console.print(f"\n[yellow]Fetching article {article_id}...[/yellow]")
+    console.print(f"\n[yellow]Fetching full article {article_id}...[/yellow]")
     
-    response = requests.get(url, headers=get_headers(api_key))
-    
-    if response.status_code == 200:
+    try:
+        response = requests.get(url, headers=get_headers(api_key), timeout=10)
+        response.raise_for_status()
         article = response.json()
+        
         title = article.get('title', 'No Title')
         author = article.get('user', {}).get('name', 'Unknown Author')
         url = article.get('url', '')
@@ -34,138 +46,107 @@ def fetch_single_article(api_key, article_id):
         console.print(Panel(header, title="Article Details", border_style="blue"))
 
         body_markdown = article.get('body_markdown', 'No content available.')
-        console.print(Markdown(body_markdown))  
+        console.print(Markdown(body_markdown))
         
-    elif response.status_code == 404:
-        console.print(f"[bold red]Error: Article with ID '{article_id}' not found.[/bold red]")
-    else:
-        console.print(f"[bold red]Error fetching article: {response.json()}[/bold red]")
+    except requests.RequestException as e:
+        if e.response and e.response.status_code == 404:
+             console.print(f"[bold red]Error: Article with ID '{article_id}' not found.[/bold red]")
+        else:
+             console.print(f"[bold red]Error fetching article: {e}[/bold red]")
 
-def handle_article_selection(api_key):
-    """Handles the user prompt to select an article to read."""
+def handle_article_selection(api_key, articles_list):
+    """Handles the user prompt to select an article to read in detail using a simple index."""
     while True:
-        article_id = input("\nEnter an Article ID to read (or press Enter to quit): ")
-        if not article_id.strip():
+        choice = input("\n👉 Enter an Index # to read the full content (or press Enter to return): ")
+        if not choice.strip():
             break
-        fetch_single_article(api_key, article_id)
+        
+        try:
+            index = int(choice)
+            if 1 <= index <= len(articles_list):
+                # Get the actual article ID from the list (adjusting for 0-based index)
+                article_id = articles_list[index - 1]['id']
+                fetch_single_article(article_id, api_key)
+            else:
+                console.print(f"[bold red]Invalid index. Please enter a number between 1 and {len(articles_list)}.[/bold red]")
+        except ValueError:
+            console.print("[bold red]Invalid input. Please enter a number.[/bold red]")
 
-# Fetch your published articles
-def fetch_articles(api_key):
-    url = f"{BASE_URL}/articles/me/published"
-    response = requests.get(url, headers=get_headers(api_key))
-    if response.status_code == 200:
-        articles = response.json()
-        if not articles:
-            print("No published articles found. Try creating one on DEV.to!")
-            return
-        table = [(a["id"], a["title"][:40], a["url"]) for a in articles]
-        print(tabulate(table, headers=["ID", "Title", "URL"], tablefmt="fancy_grid"))
-        handle_article_selection(api_key) ####
-    else:
-        print("Error fetching articles:", response.json())
+# --- Main Data Fetching Functions ---
 
-# Fetch your comments
-def fetch_comments(api_key):
-    # Step 1: get username
-    user_url = f"{BASE_URL}/users/me"
-    user_res = requests.get(user_url, headers=get_headers(api_key))
-    if user_res.status_code != 200:
-        print("Error fetching user info:", user_res.json())
-        return
+def fetch_feed(interactive=False):
+    """Fetches the main global feed of articles."""
+    api_key = get_api_key()
+    if not api_key: return
 
-    username = user_res.json().get("username")
-
-    # Step 2: fetch comments by username
-    url = f"{BASE_URL}/comments?username={username}"
-    response = requests.get(url, headers=get_headers(api_key))
-    if response.status_code == 200:
-        comments = response.json()
-        if not comments:
-            print("No comments found.")
-            return
-        table = [(c["id"], c["body_text"][:50]) for c in comments]
-        print(tabulate(table, headers=["ID", "Comment (truncated)"], tablefmt="fancy_grid"))
-    else:
-        print("Error fetching comments:", response.json())
-
-# Fetch your followers
-def fetch_followers(api_key):
-    url = f"{BASE_URL}/followers/users"
-    response = requests.get(url, headers=get_headers(api_key))
-    if response.status_code == 200:
-        followers = response.json()
-        if not followers:
-            print("No followers yet.")
-            return
-        table = [(f["id"], f["name"], f["username"]) for f in followers]
-        print(tabulate(table, headers=["ID", "Name", "Username"], tablefmt="fancy_grid"))
-    else:
-        print("Error fetching followers:", response.json())
-
-# Fetch global DEV.to feed (like Home)
-def fetch_feed(api_key):
     url = f"{BASE_URL}/articles"
-    response = requests.get(url, headers=get_headers(api_key))
-    if response.status_code == 200:
-        feed = response.json()
-        if not feed:
+    try:
+        response = requests.get(url, headers=get_headers(api_key), timeout=10)
+        response.raise_for_status()
+        articles_data = response.json()[:10] # Get top 10 articles
+        if not articles_data:
             print("No feed data available.")
             return
-        table = [(a["id"], a["title"][:40], a["url"]) for a in feed[:10]]  # limit to 10 posts
-        print(tabulate(table, headers=["ID", "Title", "URL"], tablefmt="fancy_grid"))
-        handle_article_selection(api_key)
-    else:
-        print("Error fetching feed:", response.json())
-
-def reading_list(api_key):
-    url = f"{BASE_URL}/readinglist"
-    response = requests.get(url,headers=get_headers(api_key))
-    if response.status_code == 200:
-        readinglist = response.json()
         
-        if not readinglist:
-            print("No Reading List was found")
-            return 
-        table = [(a["article"]["id"], a["article"]["title"][:40], a["article"]["url"]) for a in readinglist[:10]]
-        print(tabulate(table,headers=["ID","Title","URL"],tablefmt="fancy_grid"))
-        handle_article_selection(api_key)
-    else:
-        print("Error fetching Reading List:",response.json())
+        # Add a simple index to the table, and replace Author with the article URL
+        table = [(idx, a["title"][:50], a["url"]) for idx, a in enumerate(articles_data, 1)]
+        print(tabulate(table, headers=["Index #", "Title", "Link"], tablefmt="heavy_grid"))
 
-def main():
-    parser = argparse.ArgumentParser(description="DEV.to CLI Dashboard")
-    parser.add_argument("command", choices=["articles", "comments", "followers", "feed","readinglist"], help="What data to fetch")
-    parser.add_argument("--id", help="Read a specific article by ID")
-    parser.add_argument("--apikey", default=os.getenv("DEVTO_API_KEY"), help="Your DEV.to API key")
+        if interactive:
+            # Pass the original list of articles to the handler
+            handle_article_selection(api_key, articles_data)
+
+    except requests.RequestException as e:
+        print(f"Error fetching DEV.to feed: {e}")
+
+
+def fetch_my_articles(interactive=False):
+    """Fetches your published articles."""
+    api_key = get_api_key()
+    if not api_key: return
+    
+    url = f"{BASE_URL}/articles/me/published"
+    try:
+        response = requests.get(url, headers=get_headers(api_key), timeout=10)
+        response.raise_for_status()
+        articles_data = response.json()
+        if not articles_data:
+            print("No published articles found.")
+            return
+        
+        # Add a simple index to the table
+        table = [(idx, a["title"][:50], a["url"]) for idx, a in enumerate(articles_data, 1)]
+        print(tabulate(table, headers=["Index #", "Title", "URL"], tablefmt="heavy_grid"))
+
+        if interactive:
+            # Pass the original list of articles to the handler
+            handle_article_selection(api_key, articles_data)
+            
+    except requests.RequestException as e:
+        print(f"Error fetching your DEV.to articles: {e}")
+
+
+# --- Standalone Execution Logic ---
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="A detailed, standalone CLI for interacting with DEV.to.",
+        epilog="Example: python single_application/devto.py articles"
+    )
+    parser.add_argument(
+        "command", 
+        choices=["feed", "articles", "comments"], 
+        help="The data you want to fetch: 'feed' for the global feed, 'articles' for your published articles, 'comments' for your comments."
+    )
     args = parser.parse_args()
 
-    if args.id:
-        fetch_single_article(args.apikey, args.id)
-        return
+    print("🚀 Running DEV.to CLI in standalone mode...")
 
-    if args.command == "articles":
-        fetch_articles(args.apikey)
-    elif args.command == "comments":
-        fetch_comments(args.apikey)
-    elif args.command == "followers":
-        fetch_followers(args.apikey)
-    elif args.command == "feed":
-        fetch_feed(args.apikey)
-    elif args.command == "readinglist":
-        reading_list(args.apikey)
+    if args.command == "feed":
+        fetch_feed(interactive=True)
+    elif args.command == "articles":
+        fetch_my_articles(interactive=True)
+    # The original 'fetch_my_comments' from your file can be added here as well
+    # elif args.command == "comments":
+    #     fetch_my_comments()
 
-if __name__ == "__main__":
-    main()
 
-# -- add_argument is something that tells the parser to expect arguments(that are inside of tuple) from the user
-# --  args stores the user_input and parse_args reads the user input
-
-'''You Create the Tool: parser = argparse.ArgumentParser() creates the main parser object.
-
-You Define the Rules: parser.add_argument("command", choices=[...]) teaches the parser what commands are valid.
-
-It Auto-Generates the Help Menu: Based on your rules, the ArgumentParser builds a complete help text behind the scenes.
-
-The User Asks for Help: When a user runs python your_script.py --help, the parser's only job is to display that pre-built help menu and then exit.'''
-
-## so if user type something which is not in the choices then argparse automatically stops and print the output of --help
