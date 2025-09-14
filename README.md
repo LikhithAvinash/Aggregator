@@ -1,7 +1,7 @@
 # Aggregator
 This application puts everything in 1 place, So it improves Productivity and make sure the user doesn't miss out anything
 
-## For now it is CLI Based and focuses mostly for developers
+## For now it is CLI Based & focused for developers
 To start using this..
 1) Go to this websites
    a) Codeforces b) StackOverflow c) Kaggle d) dev.to e) Github f) GitLab g) GeeksforGeeks (optional) h) newsdata.io
