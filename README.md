@@ -43,9 +43,13 @@ To start using this..
 ### How it Works ?
 Every function works from any of the below approach
 a.Either use request library 
+
 b.Particular library for that website 
+
 c.Url(can only certain amount of info) 
+
 d.Scrapping the webste(based on the website legal terms)
+
 For more detailed information you can check out `logic.svg`
 
 
