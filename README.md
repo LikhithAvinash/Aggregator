@@ -41,6 +41,11 @@ To start using this..
 <img width="1920" height="1080" alt="Screenshot_20250913_211254" src="https://github.com/user-attachments/assets/bb843f7b-dd98-41f3-a4a8-586c2abc5312" />
 
 ### How it Works ?
-For this you can check out `logic.svg`, Every function works in same order(a.either use request library b.particular library for that website c.url(can only certain amount of info) d.Scrapping the webste(based on the website legal terms)
+Every function works from any of the below approach
+a.Either use request library 
+b.Particular library for that website 
+c.Url(can only certain amount of info) 
+d.Scrapping the webste(based on the website legal terms)
+For more detailed information you can check out `logic.svg`
 
 
