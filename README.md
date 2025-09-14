@@ -23,7 +23,22 @@ View your recent questions on Stack Overflow.
 ## 📂 Project Structure
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
 
-<img width="827" height="392" alt="image" src="https://github.com/user-attachments/assets/31e6c53e-a6cb-474d-83c0-54c77f0dffe9" />
+`Aggregator/
+├── .gitignore            # Tells Git which files to ignore (like .env)
+├── .env.example          # Template for environment variables
+├── README.md             # This file
+├── aggregator/
+│   └── alldata.py        # The main aggregator script
+└── single_application/
+    ├── __init__.py       # Makes this folder a Python package
+    ├── codeforces.py
+    ├── devto.py
+    ├── gfg.py
+    ├── github.py
+    ├── gitlab_cli.py
+    ├── kaggle_cli.py
+    └── stackoverflow.py`
+
 
 
 ## 🛠️ Setup Instructions
