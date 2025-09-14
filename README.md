@@ -51,6 +51,6 @@ c.Url(can only certain amount of info)
 
 d.Scrapping the webste(based on the website legal terms)
 
-For more detailed information you can check out [logic.svg](`logic.svg`)
+For more detailed information you can check out [logic.svg](Logic Diagram/logic.svg)
 
 
