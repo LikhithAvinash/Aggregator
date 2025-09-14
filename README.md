@@ -1,56 +1,103 @@
-# Aggregator
-This application puts everything in 1 place, So it improves Productivity and make sure the user doesn't miss out anything
+# All-in-One CLI Dashboard
+<p align="center">
+<img alt="Screenshot of the CLI Dashboard" src="https://github.com/user-attachments/assets/bb843f7b-dd98-41f3-a4a8-586c2abc5312" />
+</p>
 
-## For now it is CLI Based & focused for developers
-To start using this..
-1) Go to this websites
-   a) Codeforces b) StackOverflow c) Kaggle d) dev.to e) Github f) GitLab g) GeeksforGeeks (optional) h) newsdata.io
- Go to API section and past your API key to get information based on your feed on CLI
-2) Next Create `.env` file and Paste your API key from different websites mentioned above
-3) Inside that Folder(the one which had all the files I've Provided) open terminal to view the working
-4) Install this libraries in your system `pip install python-gitlab kaggle rich requests tabulate python-dotenv`
+This application is a command-line tool that aggregates data from various developer platforms into a single, unified view in your terminal. It helps improve productivity by bringing all your important feeds into one place, ensuring you don't miss out on anything important.
 
-## Where this Libraries are used
-`python-gitlab` (for the GitLab script)
-`kaggle` (for the Kaggle script)
-`rich` (for the DEV.to script)
-`requests` (used by the News and DEV.to scripts)
-`tabulate` (used by all scripts)
-`python-dotenv` (used by all scripts)
+## ✨ Features
+View upcoming Codeforces contests.
 
-## 🛠️ Explanation of Each Library
-**python-gitlab:** This is the official Python wrapper for the GitLab API. Your first script uses it to authenticate and fetch lists of projects, issues, and pipelines from a GitLab instance.
+See the latest articles from your DEV.to feed, with an interactive mode to read full articles.
 
-**kaggle:** This is the official command-line tool and Python client for Kaggle. The second script uses it to authenticate with your Kaggle account and fetch lists of datasets and competitions.
+Get the GeeksforGeeks Problem of the Day.
 
-**rich:** This is a powerful library for creating beautiful and rich text and formatting in the terminal. Your DEV.to script uses it to display styled output, including colored text, panels, and formatted Markdown content for articles.
+List your recent GitHub repositories and assigned issues.
 
-**requests:** A very common library for making HTTP requests. The News and DEV.to scripts use it to communicate with their respective web APIs to get data.
+List your owned projects on GitLab.
 
-**tabulate:** This library creates nicely formatted text-based tables. All your scripts use it to present the fetched data (like projects, articles, or datasets) in a clean, grid-like format.
+See active Kaggle competitions.
 
-**python-dotenv:** This helper library loads environment variables from a .env file. All your scripts use it to securely manage API keys and user credentials without hardcoding them directly in the code.
+View your recent questions on Stack Overflow.
 
-## How to Run it
-1) Open terminal inside Aggregator Folder
-2) Then type `python alldata.py` (here you will see all the info from different websites in 1 place)
-3) To know more specifically(based on the one you would like to know, lets say devto) so this one going to be `python devto.py feed` then you would get by default top 10 tech related news. Can be done for all 6
-4) To know Specifically what to type in each file go to the bottom, you will see `main` function there you will see what command to type after the website name, based on that real time information is shown
+## 📂 Project Structure
+The project is organized with a main aggregator that calls modular, single-purpose scripts.
 
-### After running it in CLI
-<img width="1920" height="1080" alt="Screenshot_20250913_211254" src="https://github.com/user-attachments/assets/bb843f7b-dd98-41f3-a4a8-586c2abc5312" />
+your_project/
+├── .gitignore            # Tells Git which files to ignore (like .env)
+├── .env.example          # Template for environment variables
+├── README.md             # This file
+├── aggregator/
+│   └── alldata.py        # The main aggregator script
+└── single_application/
+    ├── __init__.py       # Makes this folder a Python package
+    ├── codeforces.py
+    ├── devto.py
+    ├── gfg.py
+    ├── github.py
+    ├── gitlab_cli.py
+    ├── kaggle_cli.py
+    └── stackoverflow.py
 
-### How it Works ?
-Every function works from any of the below approach
+## 🛠️ Setup Instructions
+Follow these steps to get the project running on your local machine.
 
-a.Either use request library 
+### 1. Prerequisites
+Python 3.8 or higher
 
-b.Particular library for that website 
+Git
 
-c.Url(can only certain amount of info) 
+### 2. Clone the Repository
+First, clone the project to your local machine:
 
-d.Scrapping the webste(based on the website legal terms)
+git clone [https://github.com/LikhithAvinash/Aggregator.git](https://github.com/LikhithAvinash/Aggregator.git)
+cd Aggregator
 
-For a visual representation of the project, please see the [Logic Diagram](logic_diagram/logic.svg).
+### 3. Create a Virtual Environment
+It is highly recommended to use a virtual environment to manage dependencies.
 
+### Create the environment
+python -m venv venv
 
+### Activate the environment
+### On Windows:
+venv\Scripts\activate
+### On macOS / Linux:
+source venv/bin/activate
+
+### 4. Install Dependencies
+Install all the required Python libraries using pip:
+
+pip install python-gitlab kaggle rich requests tabulate python-dotenv
+
+### 5. Configure Environment Variables
+The script uses a .env file to securely store your API keys and credentials.
+
+Create your .env file by making a copy of the template:
+
+cp .env.example .env
+
+Open the .env file with a text editor.
+
+Add your personal API keys and usernames for each service. The file contains comments guiding you on where to find them. This file is included in .gitignore and will not be committed to the repository.
+
+## 🚀 How to Run
+Ensure your virtual environment is activated before running the scripts.
+
+Running the Main Aggregator
+To see all your feeds in one consolidated view, run the main alldata.py script from the project's root directory.
+
+python aggregator/alldata.py
+
+Running Individual Scripts (Standalone Mode)
+Some scripts, like devto.py, can be run individually for a more detailed and interactive experience.
+
+### Example: Run the DEV.to script to see the feed and read full articles
+python single_application/devto.py feed
+
+### Example: See your personal articles on DEV.to
+python single_application/devto.py articles
+
+Refer to the if __name__ == "__main__": block at the bottom of each script to see what commands are available.
+
+For a visual representation of the project's logic, please see the Logic Diagram.
