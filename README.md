@@ -19,13 +19,12 @@ To start using this..
 `python-dotenv` (used by all scripts)
 
 ## 🛠️ Explanation of Each Library
-#### python-gitlab: 
-This is the official Python wrapper for the GitLab API. Your first script uses it to authenticate and fetch lists of projects, issues, and pipelines from a GitLab instance.
-kaggle: This is the official command-line tool and Python client for Kaggle. The second script uses it to authenticate with your Kaggle account and fetch lists of datasets and competitions.
-rich: This is a powerful library for creating beautiful and rich text and formatting in the terminal. Your DEV.to script uses it to display styled output, including colored text, panels, and formatted Markdown content for articles.
-requests: A very common library for making HTTP requests. The News and DEV.to scripts use it to communicate with their respective web APIs to get data.
-tabulate: This library creates nicely formatted text-based tables. All your scripts use it to present the fetched data (like projects, articles, or datasets) in a clean, grid-like format.
-python-dotenv: This helper library loads environment variables from a .env file. All your scripts use it to securely manage API keys and user credentials without hardcoding them directly in the code.
+**python-gitlab:** This is the official Python wrapper for the GitLab API. Your first script uses it to authenticate and fetch lists of projects, issues, and pipelines from a GitLab instance.
+**kaggle:** This is the official command-line tool and Python client for Kaggle. The second script uses it to authenticate with your Kaggle account and fetch lists of datasets and competitions.
+**rich:** This is a powerful library for creating beautiful and rich text and formatting in the terminal. Your DEV.to script uses it to display styled output, including colored text, panels, and formatted Markdown content for articles.
+**requests:** A very common library for making HTTP requests. The News and DEV.to scripts use it to communicate with their respective web APIs to get data.
+**tabulate:** This library creates nicely formatted text-based tables. All your scripts use it to present the fetched data (like projects, articles, or datasets) in a clean, grid-like format.
+**python-dotenv:** This helper library loads environment variables from a .env file. All your scripts use it to securely manage API keys and user credentials without hardcoding them directly in the code.
 
 ## How to Run it
 1) Open terminal inside Aggregator Folder
