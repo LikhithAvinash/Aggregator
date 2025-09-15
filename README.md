@@ -83,6 +83,57 @@ Follow these steps to get the project running on your local machine.
 
 - Add your personal API keys and usernames for each service. The file contains comments guiding you on where to find them. This file is included in .gitignore and will not be committed to the repository.
 
+## API Key Links
+
+### 1. DEV.to 👩‍💻
+As before, you can generate your DEV.to API key from your account settings.
+
+Link: [https://dev.to/settings/extensions](https://dev.to/settings/extensions)
+
+Instructions: Scroll down to the "DEV Community API Keys" section and click the "Generate API Key" button.
+
+### 2. GitHub 🐙
+GitHub calls its API keys Personal Access Tokens (PATs).
+
+Link: [https://github.com/settings/tokens](https://github.com/settings/tokens)
+
+Instructions: Click on "Generate new token". You can choose between a fine-grained token (more secure) or a classic token. Give it a name, set an expiration date, and select the scopes (permissions) it needs.
+
+### 3. Codeforces ⚔️
+Codeforces allows you to generate API keys directly from your profile settings.
+
+Link: [https://codeforces.com/settings/api](https://codeforces.com/settings/api)
+
+Instructions: Click the "Add API key" button. It will generate a key and a secret that you can use for API calls.
+
+### 4. Kaggle 📊
+Kaggle's API key is provided in a downloadable file.
+
+Link: Go to your account page: [https://www.kaggle.com/account](https://www.kaggle.com/account)
+
+Instructions: Scroll down to the "API" section and click the "Create New API Token" button. This will download a kaggle.json file to your computer. Your username and key are inside this file.
+
+### 5. GitLab 🦊
+Similar to GitHub, GitLab uses Personal Access Tokens.
+
+Link: [https://gitlab.com/-/profile/personal_access_tokens](https://gitlab.com/-/profile/personal_access_tokens)
+
+Instructions: Give your token a name, set an expiration date, and choose the necessary scopes (permissions). Then click "Create personal access token".
+
+### 6. Newsdata.io 📰
+For this service, you get your API key after signing up and logging into your dashboard.
+
+Link: [https://newsdata.io/dashboard](https://newsdata.io/dashboard)
+
+Instructions: After you log in or sign up, your API key will be displayed directly on your main dashboard.
+
+### 7. Stack Overflow (Stack Exchange) 📚
+The Stack Exchange API requires you to "register an app" to get a key. This key is mainly for increasing your request quota.
+
+Link: [https://stackapps.com/apps/oauth/register](https://stackapps.com/apps/oauth/register)
+
+Instructions: Fill out the form to register your application. Once registered, you will be given a key that you can include in your API requests.
+
 ## 🚀 How to Run
 - Ensure your virtual environment is activated before running the scripts.
 
