@@ -7,7 +7,6 @@ This application is a command-line tool that aggregates data from various develo
 
 ## ✨ Features
 View upcoming Codeforces contests.
-
 See the latest articles from your DEV.to feed, with an interactive mode to read full articles.
 
 Get the GeeksforGeeks Problem of the Day.
@@ -23,7 +22,28 @@ View your recent questions on Stack Overflow.
 ## 📂 Project Structure
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
 
-<pre> ```text Aggregator/ ├── .gitignore # Tells Git which files to ignore (like .env) ├── .env.example # Template for environment variables ├── README.md # This file ├── aggregator/ │ └── alldata.py # The main aggregator script └── single_application/ ├── __init__.py # Makes this folder a Python package ├── codeforces.py ├── devto.py ├── gfg.py ├── github.py ├── gitlab_cli.py ├── kaggle_cli.py └── stackoverflow.py ``` </pre>
+```
+aggregator/
+├── alldata.py
+
+logic_diagram/
+├── logic.svg
+└── logic.txt
+
+README.md
+
+single_application/
+├── __init__.py
+├── codeforces.py
+├── devto.py
+├── gfg.py
+├── github.py
+├── gitlab_cli.py
+├── kaggle_cli.py
+├── news.py
+└── stackoverflow.py
+```
+
 
 
 
