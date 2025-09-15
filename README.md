@@ -90,7 +90,7 @@ Install all the required Python libraries using pip:
 
 - Running the Main Aggregator: To see all your feeds in one consolidated view, run the main alldata.py script from the project's root directory.
 
-`python aggregator/alldata.py`
+    `python aggregator/alldata.py`
 
 - Running Individual Scripts (Standalone Mode): Some scripts, like devto.py, can be run individually for a more detailed and interactive experience.
 
