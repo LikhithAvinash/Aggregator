@@ -6,19 +6,19 @@
 This application is a command-line tool that aggregates data from various developer platforms into a single, unified view in your terminal. It helps improve productivity by bringing all your important feeds into one place, ensuring you don't miss out on anything important.
 
 ## ✨ Features
-:arrow_right: View upcoming Codeforces contests.
+:arrow_right: **Unified Data Access** → Fetch content from multiple platforms (Codeforces, Dev.to, GFG, GitHub, GitLab, Kaggle, StackOverflow) in one place.
 
-:arrow_right: See the latest articles from your DEV.to feed, with an interactive mode to read full articles.
+:arrow_right: **Modular Design** → Each platform has its own script (codeforces.py, devto.py, etc.), making it easy to extend.
 
-:arrow_right: Get the GeeksforGeeks Problem of the Day.
+:arrow_right: **Extensible** → Add new platforms by just creating a new script in single_application/.
 
-:arrow_right: List your recent GitHub repositories and assigned issues.
+:arrow_right: **Developers Friendly** → Can be extended to a command-line tool for quick queries.
 
-:arrow_right: List your owned projects on GitLab.
+:arrow_right: **Cross-Platform** → Works on Linux, Windows, and macOS with Python 3.
 
-:arrow_right: See active Kaggle competitions.
+:arrow_right: **Lightweight** → No heavy frameworks, just pure Python scripts for simplicity.
 
-:arrow_right: View your recent questions on Stack Overflow.
+:arrow_right: **Pluggable Architecture** → Add or remove modules without affecting the rest of the system.
 
 ## 📂 Project Structure
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
@@ -46,9 +46,9 @@ Aggregator/
 Follow these steps to get the project running on your local machine.
 
 ### 1. Prerequisites
-Python 3.8 or higher
+- Python 3.8 or higher
 
-Git
+- Git
 
 ### 2. Clone the Repository
 First, clone the project to your local machine:
