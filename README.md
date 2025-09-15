@@ -98,6 +98,6 @@ Follow these steps to get the project running on your local machine.
     **Example: See your personal articles on DEV.to**
     `python single_application/devto.py articles`
 
-    - Refer to the if __name__ == "__main__": block at the bottom of each script to see what commands are available.
+    - Refer to the ```if __name__ == "__main__":``` block at the bottom of each script to see what commands are available.
 
     - For a visual representation of the project's logic, please see the [Logic Diagram](logic_diagram/logic.svg).
