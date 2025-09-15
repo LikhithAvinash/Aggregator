@@ -151,6 +151,6 @@ Instructions: Fill out the form to register your application. Once registered, y
 
     - Refer to the ```if __name__ == "__main__":``` block at the bottom of each script to see what commands are available.
 
-## ☢️ How it works
+## 🤔 How it works
 
 - For a visual representation of the project's logic, please see the [Logic Diagram](logic_diagram/logic.svg).
