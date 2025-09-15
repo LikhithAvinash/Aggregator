@@ -59,7 +59,7 @@ Follow these steps to get the project running on your local machine.
    It is highly recommended to use a virtual environment to manage dependencies.
 
    #### Create the environment:
-      ```python -m venv venv```
+      python -m venv venv
 
    ### Activate the environment
    - On Windows:
@@ -70,7 +70,7 @@ Follow these steps to get the project running on your local machine.
 ### 4. Install Dependencies
    Install all the required Python libraries using pip:
 
-    ```pip install python-gitlab kaggle rich requests tabulate python-dotenv```
+    pip install python-gitlab kaggle rich requests tabulate python-dotenv
 
 ### 5. Configure Environment Variables
 - The script uses a .env file to securely store your API keys and credentials.
