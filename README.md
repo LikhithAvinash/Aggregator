@@ -51,56 +51,55 @@ Follow these steps to get the project running on your local machine.
 - Git
 
 ### 2. Clone the Repository
-First, clone the project to your local machine:
+- First, clone the project to your local machine:
 
-git clone [https://github.com/LikhithAvinash/Aggregator.git](https://github.com/LikhithAvinash/Aggregator.git)
-cd Aggregator
+`git clone [https://github.com/LikhithAvinash/Aggregator.git](https://github.com/LikhithAvinash/Aggregator.git)`
+
+- Navigate to that folder `cd Aggregator`
 
 ### 3. Create a Virtual Environment
 It is highly recommended to use a virtual environment to manage dependencies.
 
 #### Create the environment
-python -m venv venv
+`python -m venv venv`
 
 #### Activate the environment
 #### On Windows:
-venv\Scripts\activate
+`venv\Scripts\activate`
 #### On macOS / Linux:
-source venv/bin/activate
+`source venv/bin/activate`
 
 ### 4. Install Dependencies
 Install all the required Python libraries using pip:
 
-pip install python-gitlab kaggle rich requests tabulate python-dotenv
+`pip install python-gitlab kaggle rich requests tabulate python-dotenv`
 
 ### 5. Configure Environment Variables
-The script uses a .env file to securely store your API keys and credentials.
+- The script uses a .env file to securely store your API keys and credentials.
 
-Create your .env file by making a copy of the template:
+- Create your .env file by making a copy of the template:
 
-cp .env.example .env
+- cp .env.example .env
 
-Open the .env file with a text editor.
+- Open the .env file with a text editor.
 
-Add your personal API keys and usernames for each service. The file contains comments guiding you on where to find them. This file is included in .gitignore and will not be committed to the repository.
+- Add your personal API keys and usernames for each service. The file contains comments guiding you on where to find them. This file is included in .gitignore and will not be committed to the repository.
 
 ## 🚀 How to Run
-Ensure your virtual environment is activated before running the scripts.
+- Ensure your virtual environment is activated before running the scripts.
 
-Running the Main Aggregator
-To see all your feeds in one consolidated view, run the main alldata.py script from the project's root directory.
+- Running the Main Aggregator: To see all your feeds in one consolidated view, run the main alldata.py script from the project's root directory.
 
-python aggregator/alldata.py
+`python aggregator/alldata.py`
 
-Running Individual Scripts (Standalone Mode)
-Some scripts, like devto.py, can be run individually for a more detailed and interactive experience.
+- Running Individual Scripts (Standalone Mode): Some scripts, like devto.py, can be run individually for a more detailed and interactive experience.
 
 ### Example: Run the DEV.to script to see the feed and read full articles
-python single_application/devto.py feed
+`python single_application/devto.py feed`
 
 ### Example: See your personal articles on DEV.to
-python single_application/devto.py articles
+`python single_application/devto.py articles`
 
-Refer to the if __name__ == "__main__": block at the bottom of each script to see what commands are available.
+- Refer to the if __name__ == "__main__": block at the bottom of each script to see what commands are available.
 
-For a visual representation of the project's logic, please see the [Logic Diagram](single_application/logic.svg).
+- For a visual representation of the project's logic, please see the [Logic Diagram](single_application/logic.svg).
