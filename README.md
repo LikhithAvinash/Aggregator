@@ -102,4 +102,4 @@ Install all the required Python libraries using pip:
 
     - Refer to the if __name__ == "__main__": block at the bottom of each script to see what commands are available.
 
-    - For a visual representation of the project's logic, please see the [Logic Diagram](single_application/logic.svg).
+    - For a visual representation of the project's logic, please see the [Logic Diagram](logic_diagram/logic.svg).
