@@ -7,16 +7,18 @@ This application is a command-line tool that aggregates data from various develo
 
 ## ✨ Features
 :arrow_right: View upcoming Codeforces contests.
+
 :arrow_right: See the latest articles from your DEV.to feed, with an interactive mode to read full articles.
-Get the GeeksforGeeks Problem of the Day.
 
-List your recent GitHub repositories and assigned issues.
+:arrow_right: Get the GeeksforGeeks Problem of the Day.
 
-List your owned projects on GitLab.
+:arrow_right: List your recent GitHub repositories and assigned issues.
 
-See active Kaggle competitions.
+:arrow_right: List your owned projects on GitLab.
 
-View your recent questions on Stack Overflow.
+:arrow_right: See active Kaggle competitions.
+
+:arrow_right: View your recent questions on Stack Overflow.
 
 ## 📂 Project Structure
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
