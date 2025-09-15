@@ -1,4 +1,4 @@
-# All-in-One CLI Dashboard
+# All-In-One CLI Dashboard
 <p align="center">
 <img alt="Screenshot of the CLI Dashboard" src="https://github.com/user-attachments/assets/bb843f7b-dd98-41f3-a4a8-586c2abc5312" />
 </p>
