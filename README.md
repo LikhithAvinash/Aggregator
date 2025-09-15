@@ -7,8 +7,7 @@ This application is a command-line tool that aggregates data from various develo
 
 ## ✨ Features
 :arrow_right: View upcoming Codeforces contests.
-See the latest articles from your DEV.to feed, with an interactive mode to read full articles.
-
+:arrow_right: See the latest articles from your DEV.to feed, with an interactive mode to read full articles.
 Get the GeeksforGeeks Problem of the Day.
 
 List your recent GitHub repositories and assigned issues.
