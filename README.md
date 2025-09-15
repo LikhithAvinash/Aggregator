@@ -56,19 +56,19 @@ Follow these steps to get the project running on your local machine.
 - Navigate to that folder `cd Aggregator`
 
 ### 3. Create a Virtual Environment
-    It is highly recommended to use a virtual environment to manage dependencies.
+   It is highly recommended to use a virtual environment to manage dependencies.
 
-    #### Create the environment
-        `python -m venv venv`
+   #### Create the environment:
+      `python -m venv venv`
 
-    #### Activate the environment
-        #### On Windows:
-            `venv\Scripts\activate`
-        #### On macOS / Linux:
-            `source venv/bin/activate`
+   ### Activate the environment
+   - On Windows:
+     `venv\Scripts\activate`
+   - On macOS / Linux:
+     `source venv/bin/activate`
 
 ### 4. Install Dependencies
-    Install all the required Python libraries using pip:
+   Install all the required Python libraries using pip:
 
         `pip install python-gitlab kaggle rich requests tabulate python-dotenv`
 
