@@ -6,7 +6,7 @@
 This application is a command-line tool that aggregates data from various developer platforms into a single, unified view in your terminal. It helps improve productivity by bringing all your important feeds into one place, ensuring you don't miss out on anything important.
 
 ## ✨ Features
-View upcoming Codeforces contests.
+:arrow_right: View upcoming Codeforces contests.
 See the latest articles from your DEV.to feed, with an interactive mode to read full articles.
 
 Get the GeeksforGeeks Problem of the Day.
@@ -23,29 +23,23 @@ View your recent questions on Stack Overflow.
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
 
 ```
-aggregator/
-├── alldata.py
-
-logic_diagram/
-├── logic.svg
-└── logic.txt
-
-README.md
-
-single_application/
-├── __init__.py
-├── codeforces.py
-├── devto.py
-├── gfg.py
-├── github.py
-├── gitlab_cli.py
-├── kaggle_cli.py
-├── news.py
-└── stackoverflow.py
+## Project Structure
+Aggregator/
+├── .gitignore            # Tells Git which files to ignore (like .env)
+├── .env.example          # Template for environment variables
+├── README.md             # This file
+├── aggregator/
+│   └── alldata.py        # The main aggregator script
+└── single_application/
+    ├── __init__.py       # Makes this folder a Python package
+    ├── codeforces.py
+    ├── devto.py
+    ├── gfg.py
+    ├── github.py
+    ├── gitlab_cli.py
+    ├── kaggle_cli.py
+    └── stackoverflow.py
 ```
-
-
-
 
 ## 🛠️ Setup Instructions
 Follow these steps to get the project running on your local machine.
