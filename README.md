@@ -36,8 +36,6 @@ An AI-powered Aggregator Agent that acts as your developer assistant:
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
 
 ```
-## Project Structure
-.
 📂 aggregator-ai
 ├── 📂 app
 │   ├── 📂 aggregator
@@ -82,7 +80,6 @@ The project is organized with a main aggregator that calls modular, single-purpo
 ├── README.md
 ├── .gitignore
 └── LICENSE
-
 ```
 
 ## 🛠️ Setup Instructions
