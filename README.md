@@ -166,7 +166,11 @@ Instructions: Fill out the form to register your application. Once registered, y
   ## 🚀 How to Run
 - Ensure your virtual environment is activated before running the scripts.
 
-  ```python -m uvicorn file_name:app --reload``` or ```uvicorn file_name:app --reload```
+      python -m uvicorn file_name:app --reload    
+
+or
+
+      uvicorn file_name:app --reload
 
 - Running Individual Scripts (Standalone Mode): Some scripts, like devto.py, can be run individually for a more detailed and interactive experience: You can select it from side bar
 
