@@ -17,7 +17,7 @@ print("🚀 Starting the All-in-One CLI Dashboard...")
     
 # --- This now works because the folder is renamed ---
 try:
-    from single_application import (
+    from single_cli import (
         codeforces,
         devto,
         gfg,
@@ -28,7 +28,7 @@ try:
     )
 except ImportError as e:
     print("\n❌ FATAL ERROR: Could not import one or more modules.")
-    print("Please ensure you have renamed 'Single Application' to 'single_application',")
+    print("Please ensure you have renamed 'Single Application' to 'single_cli',")
     print("and that this directory contains an empty '__init__.py' file.")
     print(f"Error details: {e}")
     exit()
@@ -81,4 +81,3 @@ def main():
 if __name__ == "__main__":
     main()
     print("\n✅ Dashboard script finished.")
-
