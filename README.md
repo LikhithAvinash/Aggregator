@@ -30,26 +30,59 @@ An AI-powered Aggregator Agent that acts as your developer assistant:
 
 :arrow_right: **Pluggable Architecture** → Add or remove modules without affecting the rest of the system.
 
+:arrow_right: **Dual Usage**→ Can use **CLI or Web App**(Depends on the Developer's Comfort)
+
 ## 📂 Project Structure
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
 
 ```
 ## Project Structure
-Aggregator/
-├── .gitignore            # Tells Git which files to ignore (like .env)
-├── .env.example          # Template for environment variables
-├── README.md             # This file
-├── aggregator/
-│   └── alldata.py        # The main aggregator script
-└── single_application/
-    ├── __init__.py       # Makes this folder a Python package
-    ├── codeforces.py
-    ├── devto.py
-    ├── gfg.py
-    ├── github.py
-    ├── gitlab_cli.py
-    ├── kaggle_cli.py
-    └── stackoverflow.py
+.
+📂 aggregator-ai
+├── 📂 app
+│   ├── 📂 aggregator
+│   │   ├── ep.py
+│   │   ├── __init__.py
+│   │   └── main.py
+│   ├── 📂 endpoints
+│   │   ├── github_ep.py
+│   │   ├── hn.py
+│   │   ├── npm.py
+│   │   ├── pypi.py
+│   │   ├── reddit.py
+│   │   └── so.py
+│   ├── frontend.py
+│   └── 📂 single_application
+│       ├── codeforces.py
+│       ├── devto.py
+│       ├── gfg.py
+│       ├── github.py
+│       ├── gitlab.py
+│       ├── hacker_news.py
+│       ├── __init__.py
+│       ├── kaggle.py
+│       └── stackoverflow.py
+├── 📂 cli
+│   ├── 📂 agg
+│   │   └── cli_agg.py
+│   └── 📂 single_cli
+│       ├── codeforces.py
+│       ├── devto.py
+│       ├── gfg.py
+│       ├── github.py
+│       ├── gitlab_cli.py
+│       ├── __init__.py
+│       ├── kaggle_cli.py
+│       ├── news.py
+│       └── stackoverflow.py
+├── 📂 logic_diagram
+│   ├── logic.svg
+│   └── logic.txt
+├── requirements.txt
+├── README.md
+├── .gitignore
+└── LICENSE
+
 ```
 
 ## 🛠️ Setup Instructions
