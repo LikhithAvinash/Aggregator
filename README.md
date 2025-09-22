@@ -36,21 +36,21 @@ An AI-powered Aggregator Agent that acts as your developer assistant:
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
 
 ```
-📂 aggregator-ai
+📂 Aggregator
 ├── 📂 app
-│   ├── 📂 aggregator
+│   ├── 📂 aggregator  # Core aggregator logic (entrypoints + main pipeline)
 │   │   ├── ep.py
 │   │   ├── __init__.py
 │   │   └── main.py
-│   ├── 📂 endpoints
+│   ├── 📂 endpoints   #  API endpoints (GitHub, PyPI, Reddit, StackOverflow, etc.)
 │   │   ├── github_ep.py
 │   │   ├── hn.py
 │   │   ├── npm.py
 │   │   ├── pypi.py
 │   │   ├── reddit.py
 │   │   └── so.py
-│   ├── frontend.py
-│   └── 📂 single_application
+│   ├── frontend.py    # Frontend/UI logic (dashboard or CLI bridge)
+│   └── 📂 single_application   # Single-source integrations (Dev.to, Kaggle, GfG, etc.)
 │       ├── codeforces.py
 │       ├── devto.py
 │       ├── gfg.py
@@ -61,9 +61,9 @@ The project is organized with a main aggregator that calls modular, single-purpo
 │       ├── kaggle.py
 │       └── stackoverflow.py
 ├── 📂 cli
-│   ├── 📂 agg
+│   ├── 📂 agg          # CLI for full aggregator (all sources combined)
 │   │   └── cli_agg.py
-│   └── 📂 single_cli
+│   └── 📂 single_cli   # CLI for individual sources (Dev.to, GitHub, Kaggle, etc.)
 │       ├── codeforces.py
 │       ├── devto.py
 │       ├── gfg.py
@@ -74,12 +74,11 @@ The project is organized with a main aggregator that calls modular, single-purpo
 │       ├── news.py
 │       └── stackoverflow.py
 ├── 📂 logic_diagram
-│   ├── logic.svg
-│   └── logic.txt
-├── requirements.txt
-├── README.md
-├── .gitignore
-└── LICENSE
+│   ├── logic.svg     # Visual diagram of system flow
+│   └── logic.txt     # Textual logic/architecture notes
+├── requirements.txt  # Python dependencies
+├── README.md         # Project documentation     
+└── .gitignore        # Ignored files for cleaner repo
 ```
 
 ## 🛠️ Setup Instructions
