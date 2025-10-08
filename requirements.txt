@@ -8,3 +8,10 @@ python-dotenv
 ## python -m uvicorn file_name:app --reload
 #   or
 ## uvicorn file_name:app --reload
+
+## python -m http.server 8001
+   # This command starts a simple web server on your machine. You might see a message like `Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...`.
+
+
+# python -m uvicorn aggregator.aggregator_main:app --reload
+# 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Developer Dashboard</h1>
+            <p>Your personalized development workspace</p>
+        </header>
+
+        <aside class="left-sidebar">
+            <div class="card">
+                <div class="card-header"><i class="fa-solid fa-calendar-days"></i><span>Calendar</span></div>
+                <div class="card-content" id="calendar-widget"></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><i class="fa-brands fa-hacker-news"></i><span>Hacker News</span></div>
+                <div class="card-content" id="hackernews-feed"><div class="loading-state">Loading stories...</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><i class="fa-brands fa-kaggle"></i><span>Kaggle Datasets</span></div>
+                <div class="card-content" id="kaggle-feed"><div class="loading-state">Loading datasets...</div></div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="card">
+                <div class="card-header"><i class="fa-brands fa-dev"></i><span>DEV.to Articles</span></div>
+                <div class="card-content" id="devto-feed"><div class="loading-state">Loading articles...</div></div>
+            </div>
+             <div class="card">
+                <div class="card-header"><i class="fa-brands fa-stack-overflow"></i><span>Stack Overflow</span></div>
+                <div class="card-content" id="stackoverflow-feed"><div class="loading-state">Loading questions...</div></div>
+            </div>
+             <div class="card">
+                <div class="card-header"><i class="fa-brands fa-reddit-alien"></i><span>Reddit /r/programming</span></div>
+                <div class="card-content" id="reddit-feed"><div class="loading-state">Loading posts...</div></div>
+            </div>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="card">
+                <div class="card-header"><i class="fa-brands fa-github"></i><span>GitHub Repositories</span></div>
+                <div class="card-content" id="github-repos"><div class="loading-state">Loading repos...</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><i class="fa-brands fa-python"></i><span>PyPI Packages</span></div>
+                <div class="card-content" id="pypi-feed"><div class="loading-state">Loading packages...</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><i class="fa-brands fa-npm"></i><span>npm Packages</span></div>
+                <div class="card-content" id="npm-feed"><div class="loading-state">Loading packages...</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><i class="fa-brands fa-gitlab"></i><span>GitLab Projects</span></div>
+                <div class="card-content" id="gitlab-projects"><div class="loading-state">Loading projects...</div></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><i class="fa-solid fa-code"></i><span>Codeforces Stats</span></div>
+                <div class="card-content" id="codeforces-stats"><div class="loading-state">Loading stats...</div></div>
+            </div>
+        </aside>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>

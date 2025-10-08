@@ -66,7 +66,36 @@ async def fetch_issues():
             raise HTTPException(status_code=e.response.status_code, detail=f"Failed to fetch GitHub issues: {e.response.text}")
         except httpx.RequestError:
             raise HTTPException(status_code=503, detail="Could not connect to the GitHub API.")
+@router.get("/pulls", response_model=list[Issue], summary="List My Pull Requests")
 
+async def fetch_my_pull_requests():
+    """Fetches the 10 most recently updated pull requests involving the authenticated user."""
+    print("\n--- DEBUG: Request received for /github/pulls endpoint. ---")
+    async with httpx.AsyncClient() as client:
+        try:
+            print("--- DEBUG: Fetching username for PR search... ---")
+            user_resp = await client.get(f"{BASE_URL}/user", headers=get_headers())
+            user_resp.raise_for_status()
+            username = user_resp.json()['login']
+            print(f"--- DEBUG: Username found: {username} ---")
+            
+            search_query = f"is:pr is:open involves:{username}"
+            url = f"{BASE_URL}/search/issues?q={search_query}&sort=updated&per_page=10"
+            print(f"--- DEBUG: Fetching PRs from URL: {url} ---")
+            
+            pr_resp = await client.get(url, headers=get_headers())
+            pr_resp.raise_for_status()
+            
+            items = pr_resp.json().get('items', [])
+            print(f"--- DEBUG: Found {len(items)} pull requests. ---")
+            return items
+        except httpx.HTTPStatusError as e:
+            print(f"--- DEBUG: HTTP Error in /pulls: {e.response.text} ---")
+            raise HTTPException(status_code=e.response.status_code, detail=f"Failed to fetch GitHub pull requests: {e.response.text}")
+        except Exception as e:
+            print(f"--- DEBUG: An unexpected error occurred in /pulls: {e} ---")
+            raise HTTPException(status_code=500, detail="An unexpected error occurred while fetching PRs.")
+        
 # --- New Endpoint for Pull Requests ---
 @router.get("/repos/{owner}/{repo}/pulls", response_model=list[PullRequest], summary="List Pull Requests")
 async def fetch_pull_requests(owner: str, repo: str):
