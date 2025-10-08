@@ -1,6 +1,7 @@
 # Passive AI Aggregator
 <p align="center">
-<img alt="Screenshot of the CLI Dashboard" src="https://github.com/user-attachments/assets/bb843f7b-dd98-41f3-a4a8-586c2abc5312" />
+<img alt="Screenshot of the CLI Dashboard" src="![Uploading WhatsApp Image 2025-10-08 at 13.49.12_3c1d4278.jpg…]()
+" />
 </p>
 
 ## Problem
