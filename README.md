@@ -1,6 +1,7 @@
 # Passive AI Aggregator
 <p align="center">
-<img alt="Screenshot of the CLI Dashboard" src="![Uploading WhatsApp Image 2025-10-08 at 13.49.12_3c1d4278.jpg…]()
+<img alt="Developers Aggregator" src="![![WhatsApp Image 2025-10-10 at 10 12 54_698b65df](https://github.com/user-attachments/assets/cdb0125a-626a-43b7-8c32-ae159bd5ed3f)
+]()
 " />
 </p>
 
