@@ -40,43 +40,39 @@ The project is organized with a main aggregator that calls modular, single-purpo
 📂 Aggregator
 ├── 📂 app
 │   ├── 📂 aggregator  # Core aggregator logic (entrypoints + main pipeline)
-│   │   ├── ep.py
 │   │   ├── __init__.py
-│   │   └── main.py
-│   ├── 📂 endpoints   #  API endpoints (GitHub, PyPI, Reddit, StackOverflow, etc.)
+│   │   └── aggregator_main.py
+│   ├──📂 endpoints   #  API endpoints (GitHub, PyPI, Reddit, StackOverflow, etc.)
 │   │   ├── github_ep.py
 │   │   ├── hn.py
 │   │   ├── npm.py
 │   │   ├── pypi.py
 │   │   ├── reddit.py
+├   |   |── codeforces.py
+│   |   ├── devto.py
+│   |   ├── gfg.py
+│   |   ├── github.py
+│   |   ├── gitlab.py
+│   |   ├── hacker_news.py
+│   |   ├── __init__.py
+│   |   ├── kaggle.py
+│   |   └── stackoverflow.py
 │   │   └── so.py
-│   ├── frontend.py    # Frontend/UI logic (dashboard or CLI bridge)
-│   └── 📂 single_application   # Single-source integrations (Dev.to, Kaggle, GfG, etc.)
-│       ├── codeforces.py
-│       ├── devto.py
-│       ├── gfg.py
-│       ├── github.py
-│       ├── gitlab.py
-│       ├── hacker_news.py
-│       ├── __init__.py
-│       ├── kaggle.py
-│       └── stackoverflow.py
-├── 📂 cli
-│   ├── 📂 agg          # CLI for full aggregator (all sources combined)
-│   │   └── cli_agg.py
-│   └── 📂 single_cli   # CLI for individual sources (Dev.to, GitHub, Kaggle, etc.)
-│       ├── codeforces.py
-│       ├── devto.py
-│       ├── gfg.py
-│       ├── github.py
-│       ├── gitlab_cli.py
-│       ├── __init__.py
-│       ├── kaggle_cli.py
-│       ├── news.py
-│       └── stackoverflow.py
+|   ├── index.html
+|   ├──📂 css
+│   |  └── style.css
+|   ├──📂 js
+│   |  ├── api.js
+│   |  ├── app.js
+│   |  ├── react-loader-chatbot.js
+│   |  ├── react-loader.js
+│   |  ├── react-loader-news.js
+│   |  ├── react-loader-theme.js
+│   |  └── ui.js    
 ├── 📂 logic_diagram
 │   ├── logic.svg     # Visual diagram of system flow
 │   └── logic.txt     # Textual logic/architecture notes
+├── n.txt
 ├── requirements.txt  # Python dependencies
 ├── README.md         # Project documentation     
 └── .gitignore        # Ignored files for cleaner repo
