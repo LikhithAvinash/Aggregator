@@ -1,14 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# --- Import routers from 'single_application' ---
-from single_application.github import router as old_github_router
-from single_application.stackoverflow import router as old_stackoverflow_router
-from single_application.hacker_news import router as old_hackernews_router
-from single_application.devto import router as devto_router
-from single_application.kaggle import router as kaggle_router
-from single_application.codeforces import router as codeforces_router
-from single_application.gitlab import router as gitlab_router
+# --- Import routers from 'endpoints' ---
+from endpoints.github import router as old_github_router
+from endpoints.stackoverflow import router as old_stackoverflow_router
+from endpoints.hacker_news import router as old_hackernews_router
+from endpoints.devto import router as devto_router
+from endpoints.kaggle import router as kaggle_router
+from endpoints.codeforces import router as codeforces_router
+from endpoints.gitlab import router as gitlab_router
+from endpoints.chatbot import router as chatbot_router
 
 # --- Import routers from 'endpoints' (from your ep.py file) ---
 from endpoints.pypi import router as pypi_router
@@ -57,6 +58,7 @@ app.include_router(reddit_router, prefix="/reddit", tags=["Reddit"])
 app.include_router(old_github_router, prefix="/github", tags=["GitHub"])
 app.include_router(old_hackernews_router, prefix="/hackernews", tags=["Hacker News"])
 app.include_router(old_stackoverflow_router, prefix="/stackoverflow", tags=["Stack Overflow"])
+app.include_router(chatbot_router, prefix="/chatbot", tags=["Chatbot"])
 
 @app.get("/features", tags=["Features"])
 async def features():

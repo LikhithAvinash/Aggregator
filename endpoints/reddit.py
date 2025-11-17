@@ -1,10 +1,32 @@
 from fastapi import APIRouter, HTTPException, FastAPI, Query
 from pydantic import BaseModel
-import httpx
 import uvicorn
+import praw # Import the PRAW library
+import os
+from dotenv import load_dotenv
 
 # --- Configuration ---
-BASE_URL = "https://www.reddit.com"
+load_dotenv()
+# BEST PRACTICE: Store credentials as environment variables, not in code.
+# You can set these in your terminal before running the app.
+# export REDDIT_CLIENT_ID="YOUR_CLIENT_ID"
+# export REDDIT_CLIENT_SECRET="YOUR_CLIENT_SECRET"
+# export REDDIT_USER_AGENT="MyApiAggregator:v1.0 (by /u/YourUsername)"
+
+CLIENT_ID = os.getenv("REDDIT_CLIENT_ID")
+CLIENT_SECRET = os.getenv("REDDIT_CLIENT_SECRET")
+REDDIT_USERNAME_ENV = os.getenv("REDDIT_USERNAME")
+
+# Check if credentials are set
+if not all([CLIENT_ID, CLIENT_SECRET, REDDIT_USERNAME_ENV]):
+    raise Exception("Missing Reddit API credentials in environment variables. Please ensure REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, and REDDIT_USERNAME are set.")
+
+# Initialize PRAW in read-only mode (no user login needed for public content)
+reddit = praw.Reddit(
+    client_id=CLIENT_ID,
+    client_secret=CLIENT_SECRET,
+    user_agent=f"Python:DevDashAggregator:v1.0 (by /u/{REDDIT_USERNAME_ENV})",
+)
 
 # --- APIRouter Instance ---
 router = APIRouter()
@@ -24,37 +46,32 @@ async def search_subreddit(
     subreddit: str,
     query: str = Query(..., min_length=1, description="The search term for posts.")
 ):
-    """Searches a specific subreddit for posts matching a query."""
-    url = f"{BASE_URL}/r/{subreddit}/search.json"
-    # Reddit API requires a unique User-Agent
-    headers = {"User-Agent": "FastAPI-Aggregator/0.1 by YourUsername"}
-    params = {"q": query, "restrict_sr": "on", "limit": 25}
+    """Searches a specific subreddit for posts matching a query using PRAW."""
+    try:
+        # PRAW handles the API call and authentication!
+        subreddit_instance = reddit.subreddit(subreddit)
+        search_results = subreddit_instance.search(query, limit=25)
 
-    async with httpx.AsyncClient() as client:
-        try:
-            resp = await client.get(url, params=params, headers=headers)
-            resp.raise_for_status()
-        except httpx.HTTPStatusError as exc:
-            raise HTTPException(status_code=exc.response.status_code, detail=f"Error searching Reddit: {exc.response.text}")
-        except httpx.RequestError as exc:
-             raise HTTPException(status_code=503, detail=f"Service unavailable: {exc}")
-
-        results = resp.json().get("data", {}).get("children", [])
-        return [
+        # Convert PRAW submission objects to our Pydantic model
+        posts = [
             Post(
-                id=p["data"].get("id"),
-                title=p["data"].get("title", "No Title"),
-                subreddit=p["data"].get("subreddit", subreddit),
-                url=f"{BASE_URL}{p['data'].get('permalink', '')}",
-                author=p["data"].get("author", "No Author"),
-                score=p["data"].get("score", 0)
+                id=submission.id,
+                title=submission.title,
+                subreddit=submission.subreddit.display_name,
+                url=f"https://www.reddit.com{submission.permalink}",
+                author=str(submission.author),
+                score=submission.score
             )
-            for p in results
+            for submission in search_results
         ]
+        return posts
+    except Exception as e:
+        # PRAW raises exceptions for errors like subreddit not found, auth errors, etc.
+        raise HTTPException(status_code=500, detail=f"An error occurred with the Reddit API: {e}")
 
 # --- Standalone App ---
-app = FastAPI(title="Standalone Reddit API")
+app = FastAPI(title="Standalone Reddit API with PRAW")
 app.include_router(router, prefix="/reddit", tags=["Reddit"])
 
 if __name__ == "__main__":
-    uvicorn.run("reddit:app", host="127.0.0.1", port=8005, reload=True)
+    uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)

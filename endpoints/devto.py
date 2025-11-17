@@ -33,7 +33,7 @@ def get_headers():
 @router.get("/articles", response_model=list[Article])
 async def fetch_articles():
     """Fetches the latest 10 articles from DEV.to."""
-    url = f"{BASE_URL}/articles/latest"
+    url = f"{BASE_URL}/articles"
     async with httpx.AsyncClient() as client:
         try:
             resp = await client.get(url, headers=get_headers(), params={"per_page": 10})
@@ -84,6 +84,6 @@ async def fetch_single_article(article_id: int):
 app = FastAPI(title="Standalone DEV.to API")
 app.include_router(router, prefix="/devto", tags=["Dev.to"])
 
-# This block will only run when you execute `python single_application/devto.py`
+# This block will only run when you execute `python endpoints/devto.py`
 if __name__ == "__main__":
     uvicorn.run("devto:app", host="127.0.0.1", port=8000, reload=True)

@@ -88,7 +88,7 @@ async def fetch_my_pull_requests():
             
             items = pr_resp.json().get('items', [])
             print(f"--- DEBUG: Found {len(items)} pull requests. ---")
-            return items
+            return [Issue(id=pr['id'], title=pr['title'], url=pr['html_url']) for pr in items]
         except httpx.HTTPStatusError as e:
             print(f"--- DEBUG: HTTP Error in /pulls: {e.response.text} ---")
             raise HTTPException(status_code=e.response.status_code, detail=f"Failed to fetch GitHub pull requests: {e.response.text}")
