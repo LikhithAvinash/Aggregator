@@ -202,4 +202,4 @@ Instructions: Fill out the form to register your application. Once registered, y
 
 ## 🤔 How it works
 
-- For a visual representation of the project's logic, please see the [Logic Diagram For CLI](logic_diagram/logic.svg).
+- For a visual representation of the project's logic, please see the [LLD](logic_diagram/logic.svg).
