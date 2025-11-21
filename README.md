@@ -1,4 +1,4 @@
-# Passive AI Aggregator
+# Dev Aggregator
 <p align="center">
 <img alt="Developers Aggregator" src="./images/main.png" />
 <img alt="Developers Aggregator" src="./images/chatbot.png" />
