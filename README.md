@@ -182,7 +182,7 @@ Instructions: Fill out the form to register your application. Once registered, y
 
    #### For Python:
    
-   **For Windows:** `venv\Scripts\activate`         
+   **To activate virtual environment:** `venv\Scripts\activate`         
       
    **For Mac/Linux:** `source venv/bin/activate`    
 
@@ -196,7 +196,7 @@ Instructions: Fill out the form to register your application. Once registered, y
        
    #### For Python3:
   
-`  `source venv/bin/activate` 
+   **TO activate the virtual environment:** `source venv/bin/activate`
 
    **RUN THIS FIRST:** For Loading the Backend
    
