@@ -155,10 +155,10 @@ Link: Go to your account page: [Kaggle](https://www.kaggle.com/account)
 
 Instructions: Scroll down to the "API" section and click the "Create New API Token" button. This will download a kaggle.json file to your computer. Your username and key are inside this file.
 
-### 5. GitLab 🦊
+### 5. Gemini 🦊
 Similar to GitHub, GitLab uses Personal Access Tokens.
 
-Link: [GitLab](https://gitlab.com/-/profile/personal_access_tokens)
+Link: [Gemini](https://aistudio.google.com/app/api-keys)
 
 Instructions: Give your token a name, set an expiration date, and choose the necessary scopes (permissions). Then click "Create personal access token".
 
