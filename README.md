@@ -18,7 +18,7 @@ The dashboard includes:
    - Datasets from Kaggle  
    - Installed software packages  
    - A built-in AI chatbot to answer questions and help with tasks  
-A User can also change the theme either to Dark/Blue theme, which suits perfect for this dashboard
+   - A User can also change the theme either to Dark/Blue theme, which suits perfect for this dashboard
 
 ### 🎯 Summary  
 This dashboard brings everything a developer needs into one place, helping save time, reduce distractions, and make the workflow faster and more organized. Even for non-developers, it works as a smart digital assistant that provides information clearly and quickly — all from one screen.
@@ -102,9 +102,12 @@ Follow these steps to get the project running on your local machine.
 
    ### Activate the environment
    - On Windows:
-     ```venv\Scripts\activate```
+
+         venv\Scripts\activate
+     
    - On macOS / Linux:
-     ```source venv/bin/activate```
+
+         source venv/bin/activate
 
 ### 4. Install Dependencies
    Install all the required Python libraries using pip:
@@ -179,23 +182,25 @@ Instructions: Fill out the form to register your application. Once registered, y
 
    #### Python:
    
-   `venv\Scripts\activate`        # Windows
-      # OR
-   `source venv/bin/activate `    # Linux/Mac
+   `venv\Scripts\activate`        # Windows  
+      # OR  
+   `source venv/bin/activate `    # Linux/Mac  
 
-   `python -m uvicorn aggregator.aggregator_main:app --reload` # For loading the Backend...**RUN THIS FIRST**
+   `python -m uvicorn aggregator.aggregator_main:app --reload` # For loading the Backend...**RUN THIS FIRST**  
 
-   `python -m http.server 8001` # For loading the Frontend....
-   
-
+   `python -m http.server 8001` # For loading the Frontend....  
        
    #### Python3:
   
-`  `source venv/bin/activate`
+`  `source venv/bin/activate` 
 
-   `python -m uvicorn aggregator.aggregator_main:app --reload` # For loading the Backend...**RUN THIS FIRST**
+   **RUN THIS FIRST:** For Loading the Backend
+   
+         python -m uvicorn aggregator.aggregator_main:app --reload 
 
-   `python -m http.server 8001` # For loading the Frontend....
+   For loading the Frontend:  
+         
+         python -m http.server 8001
    
 
 ## 🤔 How it works
