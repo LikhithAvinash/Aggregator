@@ -5,33 +5,36 @@
 </p>   
 
 ## Problem
-Developers rely on multiple tools and sources (GitHub, PyPI, StackOverflow, RSS feeds, Co-pilot, release notes) to track updates, bugs, and best practices.Updates are scattered across dozens of platforms.Tools like Dependabot only cover dependency version bumps, not full ecosystem changes.Developers must manually read changelogs, test updates, and decide if they’re safe — a time-consuming and error-prone process.
+Developers rely on multiple websites and tools such as GitHub, Stack Overflow, Kaggle, and Hacker News to stay updated and work efficiently. Constantly switching between tabs leads to distraction, wasted time, and fragmented workflows. There is no single platform that combines all developer-centric content, updates, and AI assistance into one seamless experience.
 
-## Solution
-An AI-powered Aggregator Agent that acts as your developer assistant:
+## Solution 
+DevStream provides a centralized dashboard where all developer resources are displayed together in a clean, minimal Blue-theme/Dark-theme interface.The integrated AI assistant helps summarize news, answer technical questions, and interact with feeds — making the process faster, smarter, and distraction-free.
 
-- Passive Mode: Collects updates from GitHub, PyPI, RSS feeds, StackOverflow, etc. → summarizes bug fixes, security advisories, and improvements relevant to your project.
+The dashboard includes:  
+   - A calendar for important dates  
+   - Latest tech news  
+   - Popular programming questions  
+   - GitHub updates  
+   - Datasets from Kaggle  
+   - Installed software packages  
+   - A built-in AI chatbot to answer questions and help with tasks  
+A User can also change the theme either to Dark/Blue theme, which suits perfect for this dashboard
 
-- Active Mode: Goes further by testing updates directly in your repo, analyzing benchmark results, and proposing pull requests with actionable recommendations.
-
-👉 Instead of spending hours searching and validating updates, developers get a single AI agent that keeps projects secure, optimized, and up-to-date — with minimal effort.
+### 🎯 Summary  
+This dashboard brings everything a developer needs into one place, helping save time, reduce distractions, and make the workflow faster and more organized. Even for non-developers, it works as a smart digital assistant that provides information clearly and quickly — all from one screen.
 
 ## ✨ Features
-:arrow_right: **Unified Data Access** → Fetch content from multiple platforms (Codeforces, Dev.to, GFG, GitHub, GitLab, Kaggle, StackOverflow) in one place.
+:arrow_right: **All-in-One Access** → View tech news, programming questions, datasets, and development updates from multiple platforms (Hacker News, StackOverflow, Kaggle, GitHub, PyPI, npm, etc.) in one dashboard.
 
-:arrow_right: **Relevance filtering** → only shows updates that matter to your dependencies or tech stack.
+:arrow_right: **Smart Insights** → The built-in AI assistant can explain posts, summarize discussions, and answer follow-up questions instantly.
 
-:arrow_right: **Summarizes changelogs** (bug fixes, new features, CVEs) using LLMs.
+:arrow_right: **Real-Time Updates** → Automatically refreshes content so you always see the latest news, issues, and changes related to your tech stack.
 
-:arrow_right: **Developers Friendly** → Can be extended to a command-line tool for quick queries.
+:arrow_right: **Developer Assistant** → Helps check repository issues, clarify errors, fetch programming info, and generate clean summaries.
 
-:arrow_right: **Cross-Platform** → Works on Linux, Windows, and macOS with Python 3.
+:arrow_right: **Minimal Distraction Experience** → Blue-theme UI & Dark-theme UI designed to reduce context switching and boost developer focus.
 
-:arrow_right: **Aggregates updates** from GitHub Releases, PyPI, npm, DockerHub, StackOverflow, Dev.to, HackerNews, and RSS feeds.
-
-:arrow_right: **Pluggable Architecture** → Add or remove modules without affecting the rest of the system.
-
-:arrow_right: **Dual Usage**→ Can use **CLI or Web App**(Depends on the Developer's Comfort)
+:arrow_right: **Cross-Platform Compatibility** → Works on Windows, macOS, and Linux via browser.
 
 ## 📂 Project Structure
 The project is organized with a main aggregator that calls modular, single-purpose scripts.
@@ -117,7 +120,7 @@ Follow these steps to get the project running on your local machine.
 
 - Open the .env file with a text editor.
 
-- Add your personal API keys and usernames for each service. The file contains comments guiding you on where to find them. This file is included in .gitignore and will not be committed to the repository.
+- Add your personal API keys and usernames for each service. The file contains comments guiding you on where to find them. This file is included in .gitignore and will not be seen in the repository.
 
 ## API Key Links
 
@@ -170,35 +173,30 @@ Link: [Stack Overflow](https://stackapps.com/apps/oauth/register)
 
 Instructions: Fill out the form to register your application. Once registered, you will be given a key that you can include in your API requests.
 
-# For CLI
+# FOR Web App
 ## 🚀 How to Run
-- Ensure your virtual environment is activated before running the scripts.
+   - Ensure your virtual environment is activated before running the scripts.
 
-- Running the Main Aggregator: To see all your feeds in one consolidated view, run the main alldata.py script from the project's root directory.
+   #### Python:
+   
+   `venv\Scripts\activate`        # Windows
+      # OR
+   `source venv/bin/activate `    # Linux/Mac
 
-    `python agg/alldata.py`
+   `python -m uvicorn aggregator.aggregator_main:app --reload` # For loading the Backend...**RUN THIS FIRST**
 
-- Running Individual Scripts (Standalone Mode): Some scripts, like devto.py, can be run individually for a more detailed and interactive experience.
+   `python -m http.server 8001` # For loading the Frontend....
+   
 
-    **Example: Run the DEV.to script to see the feed and read full articles**
-    `python single_cli/devto.py feed`
+       
+   #### Python3:
+  
+`  `source venv/bin/activate`
 
-    **Example: See your personal articles on DEV.to**
-    `python single_cli/devto.py articles`
+   `python -m uvicorn aggregator.aggregator_main:app --reload` # For loading the Backend...**RUN THIS FIRST**
 
-    - Refer to the ```if __name__ == "__main__":``` block at the bottom of each script to see what commands are available.
-
-  # FOR Web App
-  ## 🚀 How to Run
-- Ensure your virtual environment is activated before running the scripts.
-
-      python -m uvicorn file_name:app --reload    
-
-  or
-
-      uvicorn file_name:app --reload
-
-- Running Individual Scripts (Standalone Mode): Some scripts, like devto.py, can be run individually for a more detailed and interactive experience: You can select it from side bar
+   `python -m http.server 8001` # For loading the Frontend....
+   
 
 ## 🤔 How it works
 
