@@ -188,11 +188,11 @@ Instructions: Fill out the form to register your application. Once registered, y
 
    **RUN THIS FIRST:** For Loading the Backend
    
-         python -m uvicorn aggregator.aggregator_main:app --reload 
+    python -m uvicorn aggregator.aggregator_main:app --reload 
 
    For loading the Frontend:  
          
-         python -m http.server 8001
+    python -m http.server 8001
        
    #### For Python3:
   
@@ -200,11 +200,11 @@ Instructions: Fill out the form to register your application. Once registered, y
 
    **RUN THIS FIRST:** For Loading the Backend
    
-         python -m uvicorn aggregator.aggregator_main:app --reload 
+    python -m uvicorn aggregator.aggregator_main:app --reload 
 
    For loading the Frontend:  
          
-         python -m http.server 8001
+    python -m http.server 8001
    
 
 ## 🤔 How it works
