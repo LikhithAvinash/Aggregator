@@ -180,17 +180,21 @@ Instructions: Fill out the form to register your application. Once registered, y
 ## 🚀 How to Run
    - Ensure your virtual environment is activated before running the scripts.
 
-   #### Python:
+   #### For Python:
    
-   `venv\Scripts\activate`        # Windows  
-      # OR  
-   `source venv/bin/activate `    # Linux/Mac  
+   **For Windows:** `venv\Scripts\activate`         
+      
+   **For Mac/Linux:** `source venv/bin/activate`    
 
-   `python -m uvicorn aggregator.aggregator_main:app --reload` # For loading the Backend...**RUN THIS FIRST**  
+   **RUN THIS FIRST:** For Loading the Backend
+   
+         python -m uvicorn aggregator.aggregator_main:app --reload 
 
-   `python -m http.server 8001` # For loading the Frontend....  
+   For loading the Frontend:  
+         
+         python -m http.server 8001
        
-   #### Python3:
+   #### For Python3:
   
 `  `source venv/bin/activate` 
 
