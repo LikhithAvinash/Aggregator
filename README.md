@@ -170,11 +170,11 @@ Link: [Hacker News](https://hacker-news.firebaseio.com/v0)
 Instructions: After you log in or sign up, your API key will be displayed directly on your main dashboard.
 
 ### 7. Stack Overflow (Stack Exchange) 📚
-The Stack Exchange API requires you to "register an app" to get a key. This key is mainly for increasing your request quota.
-
-Link: [Stack Overflow](https://stackapps.com/apps/oauth/register)
-
 Instructions: Fill out the form to register your application. Once registered, you will be given a key that you can include in your API requests.
+
+Link: [Stack Overflow](https://stackoverflow.com/users/current)
+
+When you visit your profile, the URL in your browser's address bar will look like this(It is Example): `https://stackoverflow.com/users/**1234567**/Your-Display-Name`
 
 # FOR Web App
 ## 🚀 How to Run
