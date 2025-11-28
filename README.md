@@ -173,8 +173,13 @@ Link: [Reddit](https://www.reddit.com/prefs/apps)
 If the above link doesn't work try this one [Reddit](https://old.reddit.com/prefs/apps/)
 
 Disclamer: Here I am just using the sub-reddit `r/learnprogramming` you can change it by going `app/endpoints/reddit.py`
+Find this line
+```python
+   DEFAULT_SUBREDDIT = os.getenv("REDDIT_DEFAULT_SUBREDDIT", "learnprogramming")
+```
+**You can try the below sub-reddits**
 <details>
-<summary>Other Sub-reddits you can use</summary>
+<summary>Sub-Reddits</summary>
     
 ```
 List of programming-related subreddits (names only)
@@ -209,7 +214,6 @@ List of programming-related subreddits (names only)
 28. computerscience
 29. ProgrammingLanguages
 30. programminghorror
-
 ```
 </details>
 
