@@ -169,7 +169,8 @@ Instructions: Give your token a name, set an expiration date, and choose the nec
 ### 6. Reddit 📰
 For this service, you get your Client id,Client Secret,username after signing up and logging into your dashboard.
 
-Link: [Reddit](https://www.reddit.com/prefs/apps) or [Reddit](https://old.reddit.com/prefs/apps/) 
+Link: [Reddit](https://www.reddit.com/prefs/apps)  
+If the above link doesn't work try this one [Reddit](https://old.reddit.com/prefs/apps/)
 
 Disclamer: Here I am just using the sub-reddit `r/learnprogramming` you can change it by going `app/endpoints/reddit.py`
 <details>
