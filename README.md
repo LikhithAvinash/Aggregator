@@ -112,7 +112,7 @@ Follow these steps to get the project running on your local machine.
 ### 4. Install Dependencies
    Install all the required Python libraries using pip:
 
-        pip install -r requirements.txt
+      pip install -r requirements.txt
 
 ### 5. Configure Environment Variables
 - The script uses a .env file to securely store your API keys and credentials.
