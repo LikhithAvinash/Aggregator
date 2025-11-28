@@ -96,8 +96,6 @@ Follow these steps to get the project running on your local machine.
 
 ### 3. Create a Virtual Environment
    It is highly recommended to use a virtual environment to manage dependencies.
-
- ### Create the Environment & Activate:
  
  ##### On Windows:
    - Create the Virtual Environment
