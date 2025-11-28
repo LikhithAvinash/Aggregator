@@ -8,7 +8,7 @@
 Developers rely on multiple websites and tools such as GitHub, Stack Overflow, Kaggle, and Hacker News to stay updated and work efficiently. Constantly switching between tabs leads to distraction, wasted time, and fragmented workflows. There is no single platform that combines all developer-centric content, updates, and AI assistance into one seamless experience.
 
 ## Solution 
-DevDash provides a centralized dashboard where all developer resources are displayed together in a clean, minimal Blue-theme/Dark-theme interface.The integrated AI assistant helps summarize news, answer technical questions, and interact with feeds — making the process faster, smarter, and distraction-free.
+DevDash(Developer Dashboard) provides a centralized dashboard where all developer resources are displayed together in a clean, minimal Blue-theme/Dark-theme interface.The integrated AI assistant helps summarize news, answer technical questions, and interact with feeds — making the process faster, smarter, and distraction-free.
 
 The dashboard includes:  
    - A calendar for important dates  
