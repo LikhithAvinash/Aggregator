@@ -166,12 +166,12 @@ Link: [Gemini](https://aistudio.google.com/app/api-keys)
 
 Instructions: Give your token a name, set an expiration date, and choose the necessary scopes (permissions). Then click "Create personal access token".
 
-### 6. Hacker News 📰
-For this service, you get your API key after signing up and logging into your dashboard.
+### 6. Reddit 📰
+For this service, you get your Client id,Client Secret,username after signing up and logging into your dashboard.
 
-Link: [Hacker News](https://hacker-news.firebaseio.com/v0)
+Link: [Reddit](https://www.reddit.com/prefs/apps) or [Reddit](https://old.reddit.com/prefs/apps/) 
 
-Instructions: After you log in or sign up, your API key will be displayed directly on your main dashboard.
+Disclamer: Here I am just using the sub-reddit `r/learnprogramming` you can change it by going `app/endpoints/reddit.py`
 
 ### 7. Stack Overflow (Stack Exchange) 📚
 Instructions: Fill out the form to register your application. Once registered, you will be given a key that you can include in your API requests.
