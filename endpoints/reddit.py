@@ -4,6 +4,7 @@ import uvicorn
 import praw # Import the PRAW library
 import os
 from dotenv import load_dotenv
+from typing import Optional
 
 # --- Configuration ---
 load_dotenv()
@@ -12,6 +13,9 @@ load_dotenv()
 # export REDDIT_CLIENT_ID="YOUR_CLIENT_ID"
 # export REDDIT_CLIENT_SECRET="YOUR_CLIENT_SECRET"
 # export REDDIT_USER_AGENT="MyApiAggregator:v1.0 (by /u/YourUsername)"
+
+# Add a configurable default subreddit (can be overridden with REDDIT_DEFAULT_SUBREDDIT env var)
+DEFAULT_SUBREDDIT = os.getenv("REDDIT_DEFAULT_SUBREDDIT", "learnprogramming")
 
 CLIENT_ID = os.getenv("REDDIT_CLIENT_ID")
 CLIENT_SECRET = os.getenv("REDDIT_CLIENT_SECRET")
@@ -67,6 +71,31 @@ async def search_subreddit(
         return posts
     except Exception as e:
         # PRAW raises exceptions for errors like subreddit not found, auth errors, etc.
+        raise HTTPException(status_code=500, detail=f"An error occurred with the Reddit API: {e}")
+
+# New endpoint that uses query param `subreddit` but falls back to DEFAULT_SUBREDDIT
+@router.get("/r/search", response_model=list[Post])
+async def search_subreddit_default(
+    query: str = Query(..., min_length=1, description="Search term"),
+    subreddit: Optional[str] = None,
+):
+    """Search a configurable default subreddit (env) or the provided subreddit query param."""
+    chosen = subreddit or DEFAULT_SUBREDDIT
+    try:
+        subreddit_instance = reddit.subreddit(chosen)
+        search_results = subreddit_instance.search(query, limit=25)
+        posts = [
+            Post(
+                id=submission.id,
+                title=submission.title,
+                subreddit=submission.subreddit.display_name,
+                url=f"https://www.reddit.com{submission.permalink}",
+                author=str(submission.author),
+                score=submission.score
+            ) for submission in search_results
+        ]
+        return posts
+    except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred with the Reddit API: {e}")
 
 # --- Standalone App ---
