@@ -176,7 +176,6 @@ Link: [Stack Overflow](https://stackoverflow.com/users/current)
 
 When you visit your profile, the URL in your browser's address bar will look like this(It is Example): `https://stackoverflow.com/users/**1234567**/Your-Display-Name`
 
-# FOR Web App
 ## 🚀 How to Run
    - Ensure your virtual environment is activated before running the scripts.
 
