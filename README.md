@@ -172,6 +172,45 @@ For this service, you get your Client id,Client Secret,username after signing up
 Link: [Reddit](https://www.reddit.com/prefs/apps) or [Reddit](https://old.reddit.com/prefs/apps/) 
 
 Disclamer: Here I am just using the sub-reddit `r/learnprogramming` you can change it by going `app/endpoints/reddit.py`
+<details>
+<summary>Other Sub-reddits you can use</summary>
+    
+```
+List of programming-related subreddits (names only)
+
+1. programming
+2. learnprogramming
+3. coding
+4. python
+5. learnpython
+6. javascript
+7. webdev
+8. reactjs
+9. node
+10. java
+11. golang
+12. rust
+13. cpp
+14. cplusplus
+15. csharp
+16. php
+17. ruby
+18. devops
+19. linux
+20. datascience
+21. machinelearning
+22. algorithms
+23. gamedev
+24. androiddev
+25. iosdev
+26. flutterdev
+27. CodeReview
+28. computerscience
+29. ProgrammingLanguages
+30. programminghorror
+
+```
+</details>
 
 ### 7. Stack Overflow (Stack Exchange) 📚
 Instructions: Fill out the form to register your application. Once registered, you will be given a key that you can include in your API requests.
