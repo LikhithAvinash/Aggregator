@@ -192,7 +192,7 @@ When you visit your profile, the URL in your browser's address bar will look lik
 
    For loading the Frontend:  
          
-    python -m http.server 8001
+    python3 -m http.server 8001
        
    #### For Python3:
   
