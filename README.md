@@ -1,4 +1,4 @@
-# Dev Aggregator
+# DevDash
 <p align="center">
 <img alt="Developers Aggregator" src="./images/img1_main.png" />
 <img alt="Developers Aggregator" src="./images/img2_chatbot.png" />
@@ -8,7 +8,7 @@
 Developers rely on multiple websites and tools such as GitHub, Stack Overflow, Kaggle, and Hacker News to stay updated and work efficiently. Constantly switching between tabs leads to distraction, wasted time, and fragmented workflows. There is no single platform that combines all developer-centric content, updates, and AI assistance into one seamless experience.
 
 ## Solution 
-DevStream provides a centralized dashboard where all developer resources are displayed together in a clean, minimal Blue-theme/Dark-theme interface.The integrated AI assistant helps summarize news, answer technical questions, and interact with feeds — making the process faster, smarter, and distraction-free.
+DevDash provides a centralized dashboard where all developer resources are displayed together in a clean, minimal Blue-theme/Dark-theme interface.The integrated AI assistant helps summarize news, answer technical questions, and interact with feeds — making the process faster, smarter, and distraction-free.
 
 The dashboard includes:  
    - A calendar for important dates  
@@ -97,16 +97,22 @@ Follow these steps to get the project running on your local machine.
 ### 3. Create a Virtual Environment
    It is highly recommended to use a virtual environment to manage dependencies.
 
-   #### Create the environment:
-      python -m venv venv
-
-   ### Activate the environment
-   - On Windows:
-
+ ### Create the Environment & Activate:
+ 
+ ##### On Windows:
+   - Create the Virtual Environment
+     
+         python -m venv venv  
+   - Activate the Virtual Environment
+     
          venv\Scripts\activate
      
-   - On macOS / Linux:
-
+ ##### On Mac/Linux:
+   - Create the Virtual Environment
+     
+         python3 -m venv venv  
+   - Activate the Virtual Environment
+     
          source venv/bin/activate
 
 ### 4. Install Dependencies
@@ -178,12 +184,8 @@ When you visit your profile, the URL in your browser's address bar will look lik
 
 ## 🚀 How to Run
    - Ensure your virtual environment is activated before running the scripts.
-
-   #### For Python:
-   
-   **To activate virtual environment:** `venv\Scripts\activate`         
-      
-   **For Mac/Linux:** `source venv/bin/activate`    
+     
+ #### For Python: 
 
    **RUN THIS FIRST:** For Loading the Backend
    
@@ -193,9 +195,7 @@ When you visit your profile, the URL in your browser's address bar will look lik
          
     python -m http.server 8001
        
-   #### For Python3:
-  
-   **TO activate the virtual environment:** `source venv/bin/activate`
+ #### For Python3:
 
    **RUN THIS FIRST:** For Loading the Backend
    
